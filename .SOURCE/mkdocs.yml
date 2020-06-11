@@ -1,0 +1,41 @@
+site_name: Dungeons Modding Guidebook
+
+#Navigation
+nav:
+  - Home: index.md 
+  - Installing Mods: gettingstarted.md
+  - Creating Mods: creatingmods.md
+  - Resources: resources.md
+  - Credit: credit.md
+
+  
+# Configuration
+theme:
+  name: material
+  language: en
+  palette:
+    primary: orange
+    accent: orange
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: images/logo-black.svg
+  favicon: images/logo-black.svg
+  
+# Extras
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dungeonsworkshop
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/JTpGsMN
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+google_analytics: ['UA-169207270-1', 'auto']
