@@ -1,0 +1,97 @@
+>Undead
+BP_BabyZombieCharacter_c
+BP_ChickenJockeyCharacter_c
+BP_ChickenJockeyTowerCharacter_c
+BP_Husk_c
+BP_SkeletonBtCharacter_c
+    BP_SkeletonVariant1Character_c
+    BP_SkeletonVariant2Character_c
+BP_SkeletonHorsemanCharacter_c
+BP_SkeletonNecromancerCharacter_c
+BP_SkeletonVanguardCharacter_c
+BP_WraithReloaded_c
+BP_ZombieBtCharacter_c
+    BP_ZombieVariant1Character_c
+    BP_ZombieVariant2Character_c
+
+BP_NamelessKingCharacter_c - Destert Temple Boss
+
+BP_VexCharacter_c
+BP_OrdinaryHorseCharacter_c - 4 skeleton horsemen of apocalypse
+
+BP_JungleZombieCharacter_c - jungle DLC?
+BP_MossySkeletonCharacter_c - jungle DLC?
+BP_FrozenZombieCharacter_c - winter DLC?
+
+>Illagers
+BP_ArchIllagerCharacter_c - 1st phase no drop
+BP_ArchVesselCharacter_c - 2nd phase drop
+BP_ArchVisageCharacter_c - 2nd phase with beam
+BP_ChillagerCharacter_c - NOT WORKING
+BP_EnchanterCharacter_c
+BP_IllagerEvokerCharacter_c
+BP_IllagerGeomancerCharacter_c - NOT WORKING
+BP_PillagerCharacter_c
+    BP_PillagerVariant1Character_c
+    BP_PillagerVariant2Character_c
+BP_IllagerRoyalGuardCharacter_c
+BP_IllagerVindicatorCharacter_c
+    BP_IllagerVindicatorVariant1Character_c
+    BP_IllagerVindicatorVariant2Character_c
+
+BP_WitchCharacter_c
+
+BP_IllusionerCharacter_c - DLC?
+    BP_IllusionerCloneCharacter_c
+>Arthropod
+BP_SpiderBtCharacter_c
+BP_CaveSpiderCharacter_c
+
+>RedStone
+BP_RedStoneCubeCharacter_c
+BP_RedStoneGolemCharacter_c
+BP_RedStoneMonstrosityCharacter_c
+
+BP_MobSpawnerCharacter_c
+
+>Slimes
+BP_SlimeLargeCharacter_c
+BP_SlimeMediumCharacter_c
+BP_SlimeSmallCharacter_c
+BP_SlimeCauldronCharacter_c
+
+>Muu
+BP_MooShroomCharacter_c
+BP_MooShroomMonstrosityCharacter_c
+
+>Bosses
+BP_CauldronBossCharacter_c
+BP_RedStoneMonstrosityCharacter_c
+BP_NamelessKingCharacter_c - Destert Temple Boss
+BP_ArchIllagerCharacter_c - 1st phase no drop
+BP_ArchVesselCharacter_c - 2nd phase drop
+BP_MooShroomMonstrosityCharacter_c
+
+BP_JungleAbominationCharacter_c - jungle DLC BOSS?
+
+>Other/Mobs
+BP_CreeperBtCharacter_c
+BP_EndermanBtCharacter_c
+
+BP_TargetDummy_c
+BP_BatCharacter_c - CRASH
+BP_FalseKing_Character_c - NOT WORKING
+BP_WickedWraithCharacter_c - NOT WORKING
+
+BP_EntangleVineCharacter_c - sort of trap from jungle DLC?
+BP_LeaperCharacter_c - jungle DLC?
+BP_PoisonQuillVine_c - jungle DLC?
+BP_QuickGrowingVine_c - jungle DLC?
+BP_WhispererCharacter_c - jungle DLC?
+BP_JungleAbominationCharacter_c - jungle BOSS?
+BP_JungleAbominationVineCharacter_c - NOT WORKING
+
+
+BP_IcyCreeperCharacter_c - winter DLC?
+BP_JackOLanternCharacter_c - DLC?
+BP_StrayBtCharacter_c
