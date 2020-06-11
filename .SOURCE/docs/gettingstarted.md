@@ -16,9 +16,10 @@
 	1. Click on the **Windows icon** in the bottom left and enter **powershell** then click run as admin  
 	2. Run this command
 	```
-	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/698979190942466148/719295049074081862/mcdungeon_winstore_install_v7_2.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
+	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/697445257524019313/720729798451921017/mcdungeon_winstore_install_v7_3.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
 	```
-	3. It will ask you about **Execution Policy Change** just push **A** on the keyboard then Enter then Enter again  
+	3. It will ask you about an **Execution Policy Change** just push **A** on the keyboard then Enter then Enter again
+	!!! The Script will open the game at one point. Do not close the game!   
 	4. At a point you will be asked to select a folder. This is where the game files will be stored  
 	5. A **~mods** folder will appear in the new installation directory under `dungeons/dungeons/Dungeons/Content/paks/~mods` this is where you place your mods  
 	6. Click on the **Windows icon** in the bottom left and launch the **Minecraft dungeons [Modded]**
@@ -26,7 +27,16 @@
 	!!! Note
 		:warning: **Do not choose Program Files as the folder, it will break things.**  
 		
-		:warning: **When activating developer mode with the script it might be required to reboot. If you encounter an error, try to reboot and run the script again and see if that fixes the issue.**  
+		:warning: **When activating developer mode with the script it might be required to reboot. If you encounter an error, try to reboot and run the script again and see if that fixes the issue.** 
+		<h3>**Updating the Windows Store installation**</h3>
+		When an update for the game releases, you need to do these steps to get your modifiable game updated:
+		1. Click on the **Windows icon** in the bottom left and enter **powershell** then click run as admin  
+		2. Run this command
+		```
+		Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri 		"https://cdn.discordapp.com/attachments/697445257524019313/720729798451921017/mcdungeon_winstore_install_v7_3.ps1" -OutFile 	C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
+	```
+	3. It will ask you about an **Execution Policy Change**,just press **A** and then **Enter** on the keyboard.
+	4. The script will now update your game. Do not close the game when it is opened!
 	
 
 === "Launcher"
