@@ -2,9 +2,9 @@
 
 To get started on creating mods for **Minecraft Dungeons**, you first need to unpack the game files to be able to edit them.
 To do that, you need the following:
-**QuickBMS
-The Dungeons script for QuickBMS
-The game, Launcher or Windows Store version (After following Installing Mods)**
+**[QuickBMS](https://aluigi.altervista.org/papers/quickbms.zip)**,
+**[The Dungeons script for QuickBMS](https://drive.google.com/file/d/1iRnav4y9PyvTvGWmUqHZcaRGrGSAVDh5/view?usp=sharing)**,
+**The game, Launcher or Windows Store version (After following [Installing Mods](https://docs.dungeonsworkshop.net/gettingstarted/))**
 
 1. Extract **QuickBMS** into a folder.
 2. Put the Dungeons script into the same folder as **QuickBMS**.
