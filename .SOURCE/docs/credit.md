@@ -4,9 +4,11 @@
 	* Windows Installation Guide and Script
 	* Switch Files
 * **アレッサンドロ#2206** - Switch Files  
-* **753#0753** - Commands  
-* **RyFol#0001** - Commands 
+* **753#0753** - Commands Contribution
+* **RyFol#0001** - Commands Contribution 
+* **Franjo#6993** - Commands Contribution
 * **BiC2#3876** - Blender pack of All Dungeons Mobs
-* **Chill#2133** - Stats Sheet
+* **Chill#2133** - General Stats Sheet
+* **ᏦᎩᏝᏋ#9242** - Enchant Calc Sheet
 * **Krormar#7634** - Actor Blueprint List
 * **Nanikos#5668** - Item ID List

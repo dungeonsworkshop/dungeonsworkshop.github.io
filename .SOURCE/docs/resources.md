@@ -20,7 +20,10 @@
 	* **toggledebugcamera** - Toggles much better free cam  
 	* **Teleport** - Use in combination with free cam to teleport to "crosshair" location  
 	* **FOV [newFov]** - changes FOV  
-	* **summon [blueprintname]_c** - summons item or mob but they are very broken  
+	* **summon [blueprintname]_c** - summons item or mob but they are very broken
+		- **summon [blueprintname]Actor_c** - will summon a player model with the item what you want to spawn  
+		- **summon [blueprintname]Instance_c** - will crash the game for some reason  
+		- **summon [blueprintname]Storable_c** - will summon the item on the ground, upon pickup the item is broken
 	* **showdebuginfo** - I think this is one but it shows UE4 cords and other stuff  
 	* **open [levelname]** - opens specific level  
 	* **slomo [0.0-1.0]** - slows down game if you start going below 1.0  
@@ -38,5 +41,6 @@
 
 * **[Blender pack of Dungeon Mobs](http://www.mediafire.com/file/fbqv0i2gof4le1j/All_Mobs_LibraryV2.blend/file)** By BiC
 * **[Character Blueprint List](https://pastebin.com/Q4tCihg9)** By Krormar
-* **[Stats Table](https://docs.google.com/spreadsheets/d/1vKtfgoEqV7AoOmhNYFoARhAMazTjxQTv4vt2DSUYWmk/edit#gid=751105029)** By Chill & Contributors
 * **[Item ID List](https://pastebin.com/TAnQ8t4K)** By Nanikos
+* **[General Stats Table](https://docs.google.com/spreadsheets/d/1vKtfgoEqV7AoOmhNYFoARhAMazTjxQTv4vt2DSUYWmk/edit#gid=751105029)** By Chill & Contributors
+* **[Enchant Calculator Table](https://docs.google.com/spreadsheets/d/1porrjuY86bptjHV1fUZe7B9Bxf_4JAaVFLHQHUDXv2w/edit#gid=676401907)** By ᏦᎩᏝᏋ & Contributors
