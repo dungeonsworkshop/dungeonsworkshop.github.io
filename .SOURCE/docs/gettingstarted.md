@@ -18,7 +18,7 @@
 	2. Run this command
 
 	```
-	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/697445257524019313/720729798451921017/mcdungeon_winstore_install_v7_3.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
+	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/697445257524019313/721042690300575804/mcdungeon_winstore_install_v7_4.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
 	```
 
 	3. It will prompt you about an **Execution Policy Change**. Just press **A** and then **Enter** on your Keyboard.
@@ -36,6 +36,12 @@
 	in the folder you chose when you ran the script.
 
 		!!! Note
+			**You can also install mods through the [Vortex Mod Manager](https://www.nexusmods.com/about/vortex/):  
+			Just install the Minecraft Dungeons extension by running this command, like before, after you've installed Vortex.
+			```
+			mkdir C:\mcdtemp2;Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net\extension\extension.zip" -OutFile C:\mcdtemp2\extension.zip;Expand-Archive -Path C:\mcdtemp2\extension.zip -DestinationPath "$env:appdata\Vortex\plugins" -Force;
+			```
+
 			If you played the beta of Minecraft Dungeons, your save might be missing if you used the script.
 			To fix this, you need to delete the "Dungeons" in C:\Users\[your username]\AppData\Local and 
 			rename the folder "DungeonsBackup" to just "Dungeons".
@@ -51,7 +57,7 @@
 	1. Click on the **Windows Icon** in the bottom left, enter **powershell** then click **run as admin**.   
 	2. Run this command
 		```
-		Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri 		"https://cdn.discordapp.com/attachments/697445257524019313/720729798451921017/mcdungeon_winstore_install_v7_3.ps1" -OutFile 	C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
+		Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri 		"https://cdn.discordapp.com/attachments/697445257524019313/721042690300575804/mcdungeon_winstore_install_v7_4.ps1" -OutFile 	C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
 		```
 	3. It will prompt you about an **Execution Policy Change**, just press **A** and then **Enter** on the keyboard.  
 	4. The script will now update your game. Do not close the game when it is opened!
