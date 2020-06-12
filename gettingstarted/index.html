@@ -280,7 +280,7 @@ To start the game, you can click on the <strong>Windows Logo</strong>, search fo
 in the folder you chose when you ran the script.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>**You can also install mods through the <a href="https://www.nexusmods.com/about/vortex/">Vortex Mod Manager</a>:<br />
+<p>You can also install mods through the <a href="https://www.nexusmods.com/about/vortex/">Vortex Mod Manager</a>:<br />
 Just install the Minecraft Dungeons extension by running this command, like before, after you've installed Vortex.
 <div class="highlight"><pre><span></span><code>mkdir C:\mcdtemp2;Invoke-WebRequest -Uri &quot;https://docs.dungeonsworkshop.net\extension\extension.zip&quot; -OutFile C:\mcdtemp2\extension.zip;Expand-Archive -Path C:\mcdtemp2\extension.zip -DestinationPath &quot;$env:appdata\Vortex\plugins&quot; -Force;
 </code></pre></div></p>
@@ -311,10 +311,21 @@ rename the folder "DungeonsBackup" to just "Dungeons".</p>
 <div class="highlight"><pre><span></span><code>%localappdata%\Mojang\products\dungeons\dungeons\Dungeons\Content\Paks
 </code></pre></div>
 and press Ok<br />
-2. Make a new folder called <strong>~mods (Yes, with a ~)</strong>. This is where the mods are going to be installed into!
+2. Make a new folder called <strong>~mods (Yes, with a ~)</strong>. This is where the mods are going to be installed into!<br />
 3. Launch the game through
-<div class="highlight"><pre><span></span><code>%localappdata%\Mojang\products\dungeons\dungeons\Dungeons.exe
+<div class="highlight"><pre><span></span><code>%localappdata%\Mojang\products\dungeons\dungeons\Dungeons-Win64-Shipping.exe
 </code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also install mods through the <a href="https://www.nexusmods.com/about/vortex/">Vortex Mod Manager</a>:<br />
+Just install the Minecraft Dungeons extension by running this command in PowerShell as admin after you've installed Vortex:<br />
+1. Click on the <strong>Windows Icon</strong> in the bottom left and enter <strong>powershell</strong> then click run as admin,<br />
+2. Copy this command, paste it and press enter<br />
+<div class="highlight"><pre><span></span><code>mkdir C:\mcdtemp2;Invoke-WebRequest -Uri &quot;https://docs.dungeonsworkshop.net\extension\extension.zip&quot; -OutFile C:\mcdtemp2\extension.zip;Expand-Archive -Path C:\mcdtemp2\extension.zip -DestinationPath &quot;$env:appdata\Vortex\plugins&quot; -Force;
+</code></pre></div>
+3. Now when you start Vortex, it should detect Dungeons and you can install mods for it.<br />
+<strong>The Vortex automatic installation isnt supported yet, you need to download the mods manually and drag them into Vortex for now.</strong>  </p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Disclaimer</p>
 <p><strong>Launching the game through the launcher will remove any mods you have</strong></p>

@@ -36,7 +36,7 @@
 	in the folder you chose when you ran the script.
 
 		!!! Note
-			**You can also install mods through the [Vortex Mod Manager](https://www.nexusmods.com/about/vortex/):  
+			You can also install mods through the [Vortex Mod Manager](https://www.nexusmods.com/about/vortex/):  
 			Just install the Minecraft Dungeons extension by running this command, like before, after you've installed Vortex.
 			```
 			mkdir C:\mcdtemp2;Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net\extension\extension.zip" -OutFile C:\mcdtemp2\extension.zip;Expand-Archive -Path C:\mcdtemp2\extension.zip -DestinationPath "$env:appdata\Vortex\plugins" -Force;
@@ -72,11 +72,24 @@
 	%localappdata%\Mojang\products\dungeons\dungeons\Dungeons\Content\Paks
 	```
 	and press Ok  
-	2. Make a new folder called **~mods (Yes, with a ~)**. This is where the mods are going to be installed into!
+	2. Make a new folder called **~mods (Yes, with a ~)**. This is where the mods are going to be installed into!  
 	3. Launch the game through
 	```
-	%localappdata%\Mojang\products\dungeons\dungeons\Dungeons.exe
-	``` 
+	%localappdata%\Mojang\products\dungeons\dungeons\Dungeons-Win64-Shipping.exe
+	```  
+
+	!!! Note
+		You can also install mods through the [Vortex Mod Manager](https://www.nexusmods.com/about/vortex/):  
+		Just install the Minecraft Dungeons extension by running this command in PowerShell as admin after you've installed Vortex:  
+		1. Click on the **Windows Icon** in the bottom left and enter **powershell** then click run as admin,  
+		2. Copy this command, paste it and press enter  
+		```
+		mkdir C:\mcdtemp2;Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net\extension\extension.zip" -OutFile C:\mcdtemp2\extension.zip;Expand-Archive -Path C:\mcdtemp2\extension.zip -DestinationPath "$env:appdata\Vortex\plugins" -Force;
+		```  
+		3. Now when you start Vortex, it should detect Dungeons and you can install mods for it.  
+		**The Vortex automatic installation isnt supported yet, you need to download the mods manually and drag them into Vortex for now.**  
+
+
 
 	!!! Warning "Disclaimer"
 		**Launching the game through the launcher will remove any mods you have**
