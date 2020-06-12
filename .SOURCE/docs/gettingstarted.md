@@ -18,10 +18,10 @@
 	```
 	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/697445257524019313/720729798451921017/mcdungeon_winstore_install_v7_3.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
 	```
-	3. It will ask you about an **Execution Policy Change** just push **A** on the keyboard then Enter then Enter again
-	!!! The Script will open the game at one point. Do not close the game!   
-	4. At a point you will be asked to select a folder. This is where the game files will be stored.    
-	5. After a while, the script will display "Finished". The modifiable game is then installed! 
+	3. It will prompt you about an **Execution Policy Change**. Just press **A** and then **Enter** on your Keyboard. 
+	!!! The Script will open the game at one point. Do not close it when this happens!   
+	4. After a while you will be asked to select a folder. This is where the game files will be stored.    
+	5. At the end, the script will display "Finished". The modifiable game is then installed! 
 	To start the game, you can click on the **Windows Logo**, search for "Minecraft Dungeons" and click on the entry that says
 	"**Minecraft Dungeons [Modding]**"
 	6. Now if you want to install mods, you can put them into the **~mods** folder, which is located in **Dungeons/Content/Paks**
@@ -57,7 +57,7 @@
 	%localappdata%\Mojang\products\dungeons\dungeons\Dungeons\Content\Paks
 	```
 	and press Ok  
-	2. Make a new folder called **~mods** and put your mods in this folder **(Yes, with a ~)**  
+	2. Make a new folder called **~mods (Yes, with a ~)**. This is where the mods are going to be installed into!
 	3. Launch the game through
 	```
 	%localappdata%\Mojang\products\dungeons\dungeons\Dungeons.exe
@@ -65,3 +65,10 @@
 
 	!!! Warning "Disclaimer"
 		**Launching the game through the launcher will remove any mods you have**
+	
+	<h3>**Updating the Launcher Installation**</h3>
+	
+	Updating the launcher installation is very easy.
+	1. Move your **~mods** folder somewhere else. (It will get deleted during the update, so move it to not lose your mods)
+	2. Start the Launcher, and let it do the update. 
+	(If the Launcher displays "Repair", just click on that button to start the update.)
