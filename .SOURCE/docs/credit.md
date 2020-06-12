@@ -1,8 +1,12 @@
+* **Tastac#0666**
+	- Site Contribution
+	- Game Files
+	- Command Contribution
 * **IP#0001** - Original Discord Guides 
-* **[Dokucraft](https://discord.gg/2MB8bRQ)** - Launcher Installation Guide 
+* **Dokucraft** - Launcher Installation Guide 
 * **LukeFZ#4035** 
-	* Windows Installation Guide and Script
-	* Switch Files
+	- Windows Installation Guide and Script
+	- Switch Files
 * **アレッサンドロ#2206** - Switch Files  
 * **753#0753** - Commands Contribution
 * **RyFol#0001** - Commands Contribution 
