@@ -1,0 +1,175 @@
+ID	Item	Description
+2425	Sword	
+2426	Diamond Sword	
+2427	Hawkbrand	
+2428	Katana	
+2429	Master's Katana	
+2430	Dark Katana	
+2431	Spear	
+2432	Whispering Spear	
+2433	Fortune Spear	
+2434	Claymore	
+2435	Heartstealer	
+2436	Broadsword	
+2437	Sickles	
+2438	Nightmare's Bite	
+2439	The Last Laugh	
+2440	Gauntlets	
+2441	Soul Fists	
+2442	Maulers	
+2443	Fighters Binding's	
+2444	Glaive	
+2445	Grave Bane	
+2446	Venom Glaive	
+2447	Double Axe	
+2448	Whirlwind	
+2449	Cursed Axe	
+2450	Whip	
+2451	Vine Whip	
+2452	Daggers	
+2453	Fangs of Frost	
+2454	Moon Daggers	
+2455	Cutlass	
+2456	Nameless Blade	
+2457	Dancer's Sword	
+2458	Mace	
+2459	Sun's Grace	
+2460	Flail	
+2461	Pickaxe	
+2462	Diamond Pickaxe	
+2463	The Monkey Motivator N/A
+2464	Axe	
+2465	Firebrand	
+2466	Highland Axe	
+2467	Great Hammer	
+2468	Stormlander	
+2469	Hammer of Gravity	
+2470	Soul Scythe	
+2471	Jailor's Scythe	
+2472	Forst Scythe	
+2473	Soul Knife	
+2474	Truthseeker	
+2475	Eternal Knife	
+2476	Bow	
+2477	Bone Bow	
+2478	Twin Bow	
+2479	Trickbow	
+2480	The Green Menace	
+2481	The Pink Scoundrel	
+2482	Shortbow	
+2483	Purple Storm	
+2484	Mechanical Shortbow	
+2485	Longbow	
+2486	Guardian Bow	
+2487	Red Snake	
+2488	Hunting Bow	
+2489	Hunter's Promise	
+2490	Master's Bow	
+2491	Soul Bow	
+2492	Nocturnal Bow	
+2493	Bow of Lost Souls	
+2494	Power Bow	
+2495	Elite Power Bow	
+2496	Sabrewing	
+2497	Crossbow	
+2498	The Slicer	
+2499	Azure Seeker	
+2500	Spider Crossbow N/A	
+2501	Heavy Crossbow	
+2502	Doom Crossbow	
+2503	Slayer Crossbow	
+2504	Rapid Crossbow	
+2505	Butterfly Crossbow	
+2506	Auto Crossbow	
+2507	Scatter Crossbow	
+2508	Harp Crossbow	
+2509	Lightning Harp Crossbow	
+2510	Soul Crossbow	
+2511	Feral Soul Crossbow	
+2512	Voidcaller	
+2513	Exploding Crossbow	
+2514	Imploding Crossbow	
+2515	Firebolt Thrower	
+2516	Snow Bow	
+2517	Winter's Touch	
+2518	Guard's Armor	
+2519	Curious Armor	
+2520	Reinforced Mail	
+2521	Stalwart Armor	
+2522	Scale Mail	
+2523	Highland Armor	
+2524	Evocation Robe	
+2525	Ember Robe	
+2526	Hunter's Armor	
+2527	Archer's Armor	
+2528	Thief Armor	
+2529	Spider Armor	
+2530	Battle Robe	
+2531	Splendid Robe	
+2532	Dark Armor	
+2533	Titan's Shroud	
+2534	Wolf Armor	
+2535	Fox Armor	
+2536	Champion's Armor	
+2537	Hero's Armor	
+2538	Mercenary Armor	
+2539	Renegade Armor	
+2540	Grim Armor	
+2541	Wither Armor	
+2542	Phantom Armor	
+2543	Frost Bite	
+2544	Plate Armor	
+2545	Full Metal Armor	
+2546	Spelunker Armor	
+2547	Cave Crawler	
+2548	Soul Robe	
+2549	Souldancer Robe	
+2550	Mystery Armor	
+2551	----------------	
+2552	Ocelot Armor	
+2553	Shadow Walker	
+2554	Snow Armor	
+2555	Frost Armor	
+2556	Arrow Bundle	N/A
+2557	Burning Arrows	N/A
+2558	Fireworks Arrow	N/A
+2559	Torment Arrow	N/A
+2560	Fireworks Arrow	
+2561	Harvester	
+2562	Blightbearer N/A	
+2563	Corrupted Seeds	
+2564	Ice Wand	
+2565	Gong of Weakening	
+2566	Light Feather	
+2567	Wind Horn	
+2568	Boots of Swiftness	
+2569	Ghost Cloak	
+2570	Fishing Rod	
+2571	Death Cap Mushroom	
+2572	Shock Powder	
+2573	Iron Hide Amulet	
+2574	Tasty Bone	
+2575	Wonderful Wheat	
+2576	Golem Kit	
+2577	Love Medalion	
+2578	Corrupter Beacon	
+2579	Lightning Rod	
+2580	Soul Healer	
+2581	Totem of Shielding	
+2582	Totem of Resistance N/A	
+2583	Totem of Soul Protection	
+2584	Totem of Regeneration	
+2585	Flaming Quiver	
+2586	Torment Quiver	
+2587	TNT	N/A
+2588	Swiftness Potion	N/A
+2589	Strength Potion	N/A
+2590	Shadow Brew	N/A
+2591	Oakwood Brew	N/A
+2592	Sweet Brew	N/A
+2593	Bread	N/A
+2594	Apple	N/A
+2595	Pork	N/A
+2596	Melon	N/A
+2597	Cooked Salmon	N/A
+2598	----------------
