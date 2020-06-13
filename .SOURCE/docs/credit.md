@@ -4,7 +4,8 @@
 	- Command Contribution
 * **IP#0001** - Original Discord Guides 
 * **Dokucraft** - Launcher Installation Guide 
-* **LukeFZ#4035** 
+* **LukeFZ#4035**
+	- Site Contribution 
 	- Windows Installation Guide and Script
 	- Switch Files
 * **アレッサンドロ#2206** - Switch Files  
