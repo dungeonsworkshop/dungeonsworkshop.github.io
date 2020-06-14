@@ -237,7 +237,6 @@
                 
                 <p><strong>Make sure dungeons is not running while you try to install mods.</strong></p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Windows Store</label><div class="tabbed-content">
-<p><span style="color:gray"><em>Tutorial By LukeFZ</em></span>  </p>
 <div class="admonition warning">
 <p class="admonition-title">Warnings</p>
 <p><img alt="🚫" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f6ab.svg" title=":no_entry_sign:" /> <strong>Bitdefender user will need to uninstall Bitdefender, as it just breaks the script completely</strong><br />
@@ -245,67 +244,53 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Prerequisites</p>
-<p><strong><a href="https://aka.ms/vs/16/release/vc_redist.x64.exe">Visual C++ Redist</a></strong>  </p>
+<p><strong>Install <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe">Visual C++ Redist</a></strong>  </p>
 </div>
 <p><h3><strong>Windows Store Installation</strong></h3></p>
 <ol>
-<li>
-<p>Click on the <strong>Windows icon</strong> in the bottom left and enter <strong>powershell</strong> then click run as admin  </p>
-</li>
-<li>
-<p>Run this command</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code>Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri &quot;https://cdn.discordapp.com/attachments/697445257524019313/721817478812139520/mcdungeon_winstore_install_v7_5.ps1&quot; -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
-</code></pre></div>
-
-<ol>
-<li>
-<p>It will prompt you about an <strong>Execution Policy Change</strong>. Just press <strong>A</strong> and then <strong>Enter</strong> on your Keyboard.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The script will open the game at one point. Do not close it when this happens!</p>
-</div>
-</li>
-<li>
-<p>After a while you will be asked to select a folder. This is where the game files will be stored.</p>
-</li>
-<li>
-<p>At the end, the script will display "Finished". The modifiable game is then installed! 
+<li>Click on the <strong>Windows icon</strong> in the bottom left and enter <strong>powershell</strong> then click run as admin  </li>
+<li>Run this command
+<div class="highlight"><pre><span></span><code>Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri &quot;https://cdn.discordapp.com/attachments/697445257524019313/721042690300575804/mcdungeon_winstore_install_v7_4.ps1&quot; -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
+</code></pre></div></li>
+<li>It will prompt you about an <strong>Execution Policy Change</strong>. Just press <strong>A</strong> and then <strong>Enter</strong> on your Keyboard.
+    !!! Note
+        The script will open the game at one point. Do not close it when this happens!</li>
+<li>After a while you will be asked to select a folder. This is where the game files will be stored.</li>
+<li>At the end, the script will display "Finished". The modifiable game is then installed! 
 To start the game, you can click on the <strong>Windows Logo</strong>, search for "Minecraft Dungeons" and click on the entry that says
-"<strong>Minecraft Dungeons [Modding]</strong>"</p>
-</li>
-<li>
-<p>Now if you want to install mods, you can put them into the <strong>~mods</strong> folder, which is located in <strong>Dungeons/Content/Paks</strong>
-in the folder you chose when you ran the script.</p>
+"<strong>Minecraft Dungeons [Modding]</strong>"</li>
+<li>Now if you want to install mods, you can put them into the <strong>~mods</strong> folder, which is located in <strong>Dungeons/Content/Paks</strong>
+in the folder you chose when you ran the script.</li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can also install mods through the <a href="https://www.nexusmods.com/about/vortex/">Vortex Mod Manager</a>:<br />
-Just install the Minecraft Dungeons extension by running this command, like before, after you've installed Vortex.
+Just install the Minecraft Dungeons extension by running this command after you've installed Vortex Mod Manager.
 <div class="highlight"><pre><span></span><code>mkdir C:\mcdtemp2;Invoke-WebRequest -Uri &quot;https://docs.dungeonsworkshop.net\extension\extension.zip&quot; -OutFile C:\mcdtemp2\extension.zip;Expand-Archive -Path C:\mcdtemp2\extension.zip -DestinationPath &quot;$env:appdata\Vortex\plugins&quot; -Force;
-</code></pre></div></p>
-<p>If you played the beta of Minecraft Dungeons, your save might be missing if you used the script.
-To fix this, you need to delete the "Dungeons" in C:\Users[your username]\AppData\Local and 
-rename the folder "DungeonsBackup" to just "Dungeons".</p>
+</code></pre></div>
+Now when you start Vortex, it should detect Dungeons and you can install mods for it.  </p>
+<p><strong>The Vortex automatic installation isnt supported yet, you need to download the mods manually and drag them into Vortex for now.</strong>  </p>
+</div>
+<div class="admonition bug">
+<p class="admonition-title">Bug</p>
+<p>If you played the beta of Minecraft Dungeons, your save might be missing if you used the script.  </p>
+<p>To fix this, you need to delete the "Dungeons" in C:\Users[your username]\AppData\Local and rename the folder "DungeonsBackup" to just "Dungeons".</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><img alt="⚠" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/26a0.svg" title=":warning:" /> <strong>Do not choose Program Files as the folder, it will break things.</strong>  </p>
 <p><img alt="⚠" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/26a0.svg" title=":warning:" /> <strong>When activating developer mode with the script it might be required to reboot. If you encounter an error, try to reboot and run the script again and see if that fixes the issue.</strong></p>
 </div>
-</li>
-</ol>
 <p><h3><strong>Updating the Windows Store installation</strong></h3></p>
 <p>When an update for the game releases, you need to do these steps to get your modifiable game updated:<br />
 1. Click on the <strong>Windows Icon</strong> in the bottom left, enter <strong>powershell</strong> then click <strong>run as admin</strong>. <br />
 2. Run this command
-    <div class="highlight"><pre><span></span><code>Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri      &quot;https://cdn.discordapp.com/attachments/697445257524019313/721817478812139520/mcdungeon_winstore_install_v7_5.ps1&quot; -OutFile     C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
+    <div class="highlight"><pre><span></span><code>Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri      &quot;https://cdn.discordapp.com/attachments/697445257524019313/721042690300575804/mcdungeon_winstore_install_v7_4.ps1&quot; -OutFile     C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
 </code></pre></div>
 3. It will prompt you about an <strong>Execution Policy Change</strong>, just press <strong>A</strong> and then <strong>Enter</strong> on the keyboard.<br />
 4. The script will now update your game. Do not close the game when it is opened!</p>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Launcher</label><div class="tabbed-content">
-<p><span style="color:gray"><em>Tutorial From <a href="https://discord.gg/2MB8bRQ">Dokucraft</a></em></span>  </p>
 <p><h3><strong>Launcher Installation</strong></h3>
 1. Press <strong>Win + R</strong>, enter
 <div class="highlight"><pre><span></span><code>%localappdata%\Mojang\products\dungeons\dungeons\Dungeons\Content\Paks
@@ -327,18 +312,14 @@ Just install the Minecraft Dungeons extension by running this command in PowerSh
 <strong>The Vortex automatic installation isnt supported yet, you need to download the mods manually and drag them into Vortex for now.</strong>  </p>
 </div>
 <div class="admonition warning">
-<p class="admonition-title">Disclaimer</p>
+<p class="admonition-title">Warning</p>
 <p><strong>Launching the game through the launcher will remove any mods you have</strong></p>
 </div>
 <p><h3><strong>Updating the Launcher Installation</strong></h3></p>
 <p>Updating the launcher installation is very easy.</p>
 <ol>
 <li>
-<p>Move your <strong>~mods</strong> folder somewhere else. </p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>It will get deleted during the update, so move it to not lose your mods!  </p>
-</div>
+<p>Move your <strong>~mods</strong> folder somewhere else <strong>otherwise they will be deleted.</strong></p>
 </li>
 <li>
 <p>Start the Launcher, and let it do the update.</p>
@@ -346,6 +327,9 @@ Just install the Minecraft Dungeons extension by running this command in PowerSh
 <p class="admonition-title">Note</p>
 <p>(If the Launcher displays "Repair", just click on that button to start the update.)</p>
 </div>
+</li>
+<li>
+<p>Move your <strong>~mods</strong> folder back in and start the game.</p>
 </li>
 </ol>
 </div>
