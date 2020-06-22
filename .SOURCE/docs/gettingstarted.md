@@ -14,7 +14,7 @@
 	1. Click on the **Windows icon** in the bottom left and enter **powershell** then click run as admin  
 	2. Run this command
 	```
-	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/697445257524019313/724660312346984498/mcdungeon_winstore_install_v7_8.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
+	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/698979190942466148/724665089566703626/mcdungeon_winstore_install_v8.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
 	```
 	3. It will prompt you about an **Execution Policy Change**. Just press **A** and then **Enter** on your Keyboard.
 		!!! Note
@@ -52,7 +52,7 @@
 	1. Click on the **Windows Icon** in the bottom left, enter **powershell** then click **run as admin**.   
 	2. Run this command
 		```
-		Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri 		"https://cdn.discordapp.com/attachments/697445257524019313/724660312346984498/mcdungeon_winstore_install_v7_8.ps1" -OutFile 	C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
+		Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri 		"https://cdn.discordapp.com/attachments/698979190942466148/724665089566703626/mcdungeon_winstore_install_v8.ps1" -OutFile 	C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
 		```
 	3. It will prompt you about an **Execution Policy Change**, just press **A** and then **Enter** on the keyboard.  
 	4. The script will now update your game. Do not close the game when it is opened!
