@@ -250,7 +250,7 @@
 <ol>
 <li>Click on the <strong>Windows icon</strong> in the bottom left and enter <strong>powershell</strong> then click run as admin  </li>
 <li>Run this command
-<div class="highlight"><pre><span></span><code>Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri &quot;https://cdn.discordapp.com/attachments/697445257524019313/725479048977055754/mcdungeon_winstore_install_v8_1.ps1&quot; -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
+<div class="highlight"><pre><span></span><code>Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri &quot;https://docs.dungeonsworkshop.net/installscript/installscript.ps1&quot; -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
 </code></pre></div></li>
 <li>It will prompt you about an <strong>Execution Policy Change</strong>. Just press <strong>A</strong> and then <strong>Enter</strong> on your Keyboard.
     !!! Note
@@ -265,17 +265,17 @@ in the folder you chose when you ran the script.</li>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can also install mods through the <a href="https://www.nexusmods.com/about/vortex/">Vortex Mod Manager</a>:<br />
-Just install the Minecraft Dungeons extension by running this command after you've installed Vortex Mod Manager.
+If you had the Mod Manager installed while running the script, the plugin will have installed automatically. <br />
+If you didn't you need to run this command after you've installed Vortex Mod Manager: <br />
 <div class="highlight"><pre><span></span><code>mkdir C:\mcdtemp2;Invoke-WebRequest -Uri &quot;https://docs.dungeonsworkshop.net\extension\extension.zip&quot; -OutFile C:\mcdtemp2\extension.zip;Expand-Archive -Path C:\mcdtemp2\extension.zip -DestinationPath &quot;$env:appdata\Vortex\plugins&quot; -Force;
 </code></pre></div>
-Now when you start Vortex, it should detect Dungeons and you can install mods for it.  </p>
+Now when you start Vortex, it should detect Minecraft Dungeons and you can install mods for it.  </p>
 <p><strong>The Vortex automatic installation isnt supported yet, you need to download the mods manually and drag them into Vortex for now.</strong>  </p>
 </div>
-<div class="admonition bug">
-<p class="admonition-title">Bug</p>
-<p>If you played the beta of Minecraft Dungeons, your save might be missing if you used the script.  </p>
-<p>To fix this, you need to delete the "Dungeons" in C:\Users[your username]\AppData\Local and rename the folder "DungeonsBackup" to just "Dungeons".</p>
-</div>
+<p>!!! Bug (Fixed after game update 1.1.2.0!)
+    If you played the beta of Minecraft Dungeons, your save might be missing if you used the script.  </p>
+<pre><code>To fix this, you need to delete the "Dungeons" in C:\Users\[your username]\AppData\Local and rename the folder "DungeonsBackup" to just "Dungeons".
+</code></pre>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><img alt="⚠" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/26a0.svg" title=":warning:" /> <strong>Do not choose Program Files as the folder, it will break things.</strong>  </p>
@@ -285,7 +285,7 @@ Now when you start Vortex, it should detect Dungeons and you can install mods fo
 <p>When an update for the game releases, you need to do these steps to get your modifiable game updated:<br />
 1. Click on the <strong>Windows Icon</strong> in the bottom left, enter <strong>powershell</strong> then click <strong>run as admin</strong>. <br />
 2. Run this command
-    <div class="highlight"><pre><span></span><code>Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri      &quot;https://cdn.discordapp.com/attachments/697445257524019313/725479048977055754/mcdungeon_winstore_install_v8_1.ps1&quot; -OutFile     C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
+    <div class="highlight"><pre><span></span><code>Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri      &quot;https://docs.dungeonsworkshop.net/installscript/installscript.ps1&quot; -OutFile    C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
 </code></pre></div>
 3. It will prompt you about an <strong>Execution Policy Change</strong>, just press <strong>A</strong> and then <strong>Enter</strong> on the keyboard.<br />
 4. The script will now update your game. Do not close the game when it is opened!</p>
