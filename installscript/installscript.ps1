@@ -89,7 +89,16 @@ clear
 if($args[0] -eq "update") {
     "Preparing to update!"
     $install = Get-AppxPackage -Name "Microsoft.Lovika.mod" | select -ExpandProperty InstallLocation
-    if($install -eq $null) {
+    $version = Get-AppxPackage -Name "Microsoft.Lovika" | select -ExpandProperty Version
+    $versionorig = "1.1.2.1"
+    if ([version]$version -gt [version]$versionorig) {
+
+        "Minecraft Dungeons version after 1.3.2.0, update functionality not supported. Please backup your mods, reinstall the original version of the game and run the script normally again."
+        exit
+
+        } else {
+
+        if($install -eq $null) {
         "Error: Modded Installation not found! Are you sure you have it installed?"
         exit
         } else {
@@ -99,6 +108,7 @@ if($args[0] -eq "update") {
         rm "$install\*" -Recurse
         
         }
+    }
 }
 pause
 "Dumping... This can take a while!"
@@ -136,7 +146,7 @@ Rename-Item -Path "$install\Dungeons\Binaries\Win64\Dungeons.exe" -NewName "Dung
 
 "Patching AppxManifest..."
 $filecontent = Get-Content -Path $install/appxmanifest.xml
-$filecontent[2] = $filecontent[2] -replace "Microsoft.Lovika","Microsoft.Lovika.mod"
+# $filecontent[2] = $filecontent[2] -replace "Microsoft.Lovika","Microsoft.Lovika.mod"
 $filecontent[31] = $filecontent[31] -replace "Dungeons.exe","Dungeons-Win64-Shipping.exe"
 $filecontent[32] = $filecontent[32] -replace "Minecraft Dungeons","Minecraft Dungeons [Modding]"
 Set-Content -Path $install/appxmanifest.xml -Value $filecontent
@@ -146,13 +156,14 @@ mkdir "$install\Dungeons\Content\Movies\backup"
 Get-ChildItem -Path "$install\Dungeons\Content\Movies\*" -File -Exclude "loader_splash1080.mp4","dungeons_intro_1080_loop.mp4","blank_splash720.mp4" | Move-Item -Destination "$install\Dungeons\Content\Movies\backup\"
 
 
-"Installing modifiable version.."
+
+"Installing modifiable version & Uninstalling original version..."
 Stop-Process -Id $id -Force
+Start-Sleep -s 1
+Remove-AppxPackage Microsoft.Lovika
 Add-AppxPackage -path $install/appxmanifest.xml -register
 if($args[0] -eq "update") 
-    {
-
-    } else {
+    {} else {
      New-item -Path $install/Dungeons/Content/Paks/ -Name "~mods" -ItemType "directory"
     }
 
@@ -165,10 +176,16 @@ if($args[0] -eq "update") {
 
 if(Test-Path -Path "$env:appdata\Vortex\plugins") 
 {
-    "Vortex Mod Manager detected, installing plugin..."
+    "Vortex Mod Manager detected, checking if plugin is already installed..."
+    if(Test-Path -Path "$env:appdata\Vortex\plugins") {
+
     Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net/extension/extension.zip" -OutFile "C:\mcdtemp\extension.zip"
     mkdir "$env:appdata\Vortex\plugins\game-minecraftdungeons"
     Expand-Archive -Path "C:\mcdtemp\extension.zip" -DestinationPath "$env:appdata\Vortex\plugins\game-minecraftdungeons"
+    
+    } else {
+        "Plguin already installed, skipping..."
+    }
 } else {
     "Vortex Mod Manager not detected, skipping plugin installation!"
 }
