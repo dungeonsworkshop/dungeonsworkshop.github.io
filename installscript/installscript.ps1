@@ -5,7 +5,6 @@ clear
 if ([Security.Principal.WindowsIdentity]::GetCurrent().Groups -contains 'S-1-5-32-544')
 {
     $RegistryKeyPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock"
-    pause
     if (! (Test-Path -Path $RegistryKeyPath -ErrorAction SilentlyContinue)) 
     {
         New-Item -Path $RegistryKeyPath -ItemType Directory -Force -ErrorAction Continue
@@ -22,7 +21,6 @@ if ([Security.Principal.WindowsIdentity]::GetCurrent().Groups -contains 'S-1-5-3
     if ($feature -and ($feature.State -eq "Disabled"))
     {
         Enable-WindowsOptionalFeature -FeatureName Microsoft-Windows-Subsystem-Linux -Online -All -LimitAccess -NoRestart
-        pause
         "3"
     }
 
@@ -110,7 +108,6 @@ if($args[0] -eq "update") {
         }
     }
 }
-pause
 "Dumping... This can take a while!"
 explorer.exe shell:AppsFolder\$(get-appxpackage -name Microsoft.Lovika | select -expandproperty PackageFamilyName)!Game
 while($id -eq $null) {
