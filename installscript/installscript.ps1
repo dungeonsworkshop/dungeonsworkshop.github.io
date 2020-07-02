@@ -160,7 +160,7 @@ Get-ChildItem -Path "$install\Dungeons\Content\Movies\*" -File -Exclude "loader_
 "Installing modifiable version & Uninstalling original version..."
 Stop-Process -Id $id -Force
 Start-Sleep -s 1
-Remove-AppxPackage Microsoft.Lovika
+Get-AppxPackage Microsoft.Lovika | Remove-AppxPackage
 Add-AppxPackage -path $install/appxmanifest.xml -register
 if($args[0] -eq "update") 
     {} else {
