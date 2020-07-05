@@ -157,7 +157,7 @@ Get-ChildItem -Path "$install\Dungeons\Content\Movies\*" -File -Exclude "loader_
 "Installing modifiable version & Uninstalling original version..."
 Stop-Process -Id $id -Force
 Start-Sleep -s 1
-Get-AppxPackage Microsoft.Lovika | Remove-AppxPackage
+Get-AppxPackage Microsoft.Lovika | Remove-AppxPackage -AllUsers
 Add-AppxPackage -path $install/appxmanifest.xml -register
 if($args[0] -eq "update") 
     {} else {
@@ -174,14 +174,16 @@ if($args[0] -eq "update") {
 if(Test-Path -Path "$env:appdata\Vortex\plugins") 
 {
     "Vortex Mod Manager detected, checking if plugin is already installed..."
-    if(Test-Path -Path "$env:appdata\Vortex\plugins") {
+    if(Test-Path -Path "$env:appdata\Vortex\plugins\game-minecraftdungeons") {
+
+        "Plguin already installed, skipping..."
+
+    } else {
 
     Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net/extension/extension.zip" -OutFile "C:\mcdtemp\extension.zip"
     mkdir "$env:appdata\Vortex\plugins\game-minecraftdungeons"
     Expand-Archive -Path "C:\mcdtemp\extension.zip" -DestinationPath "$env:appdata\Vortex\plugins\game-minecraftdungeons"
-    
-    } else {
-        "Plguin already installed, skipping..."
+
     }
 } else {
     "Vortex Mod Manager not detected, skipping plugin installation!"
