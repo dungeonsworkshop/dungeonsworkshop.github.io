@@ -6,7 +6,7 @@
 
 ### Using QuickBMS
 
-1. Download [QuickBMS](https://aluigi.altervista.org/papers/quickbms.zip) and the [Dungeons Script](https://drive.google.com/file/d/1iRnav4y9PyvTvGWmUqHZcaRGrGSAVDh5/view?usp=sharing).  
+1. Download [QuickBMS](https://aluigi.altervista.org/papers/quickbms.zip) and the [Dungeons Script](https://cdn.discordapp.com/attachments/715508829458006077/724750310496796733/dungeons.bms).  
 3. Extract the **QuickBMS zip** and launch **QuickBMS.exe**.  
 4. Find and select the **Dungeons script** you downloaded and **press open**.  
 5. Go to `%localappdata%\Mojang\products\dungeons\dungeons\Dungeons\Content\Paks` and select all of the files, then **press open**.  
