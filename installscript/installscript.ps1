@@ -1,5 +1,15 @@
+#   Install script for the WinStore version of Minecraft: Dungeons.
+#   Script made by LukeFZ#4035
+#
+#
+
+
 $id
+$version = Get-AppxPackage -Name "Microsoft.Lovika" | select -ExpandProperty Version
+$versionorig = "1.1.2.1"
+$freespace = Get-WmiObject -Class Win32_logicaldisk -Filter "DeviceID = 'C:'" | select -ExpandProperty FreeSpace
 clear
+
 "Checking Developer Mode & Elevating as needed"
 
 if ([Security.Principal.WindowsIdentity]::GetCurrent().Groups -contains 'S-1-5-32-544')
@@ -49,15 +59,41 @@ else
    exit
 }
 clear
-"Determining the system architecture for UWPDumper..."
-if ([Environment]::Is64BitOperatingSystem) {
-    Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/697445257524019313/725117586718720030/UWPDumper_x64.zip" -OutFile C:\mcdtemp\uwp64.zip
+"Checking prerequisites & Downloading UWPDumper"
+if ($freespace -gt 10000000000) {
+    if ([Environment]::Is64BitOperatingSystem) {
+        Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/697445257524019313/725117586718720030/UWPDumper_x64.zip" -OutFile C:\mcdtemp\uwp64.zip
+    } else {
+        Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/697445257524019313/725117598697783326/UWPDumper_x86.zip" -OutFile C:\mcdtemp\uwp32.zip
+    }
+    Expand-Archive -Path C:\mcdtemp\uwp*.zip -DestinationPath C:\mcdtemp\uwp -Force
+    clear
 } else {
-    Invoke-WebRequest -Uri "https://cdn.discordapp.com/attachments/697445257524019313/725117598697783326/UWPDumper_x86.zip" -OutFile C:\mcdtemp\uwp32.zip
+    "You do not have enough free space on your C: drive to complete the installation. Please free up at least 10GB of space on the drive and then restart this process again."
+    exit
 }
-Expand-Archive -Path C:\mcdtemp\uwp*.zip -DestinationPath C:\mcdtemp\uwp -Force
-clear
 
+if($args[0] -eq "update") {
+    "Preparing to update!"
+    if ([version]$version -gt [version]$versionorig) {
+
+        "Minecraft Dungeons version after 1.3.2.0, update functionality not supported. Please backup your mods, reinstall the original version of the game and run the script normally again."
+        exit
+
+        } else {
+
+        if($install -eq $null) {
+        "Error: Modded Installation not found! Are you sure you have it installed?"
+        exit
+        } else {
+        Remove-Item -Path "$install\Dungeons\Content\Paks\*" -include pakchunk*.pak
+        mv "$install\Dungeons\Content\Paks\" C:\mcdtemp\UpdateTemp\Paks 
+        Get-AppxPackage -Name "Microsoft.Lovika.mod" | Remove-AppxPackage
+        rm "$install\*" -Recurse
+        
+        }
+    }
+}
 if($args[0] -eq "forcesavetransfer") {
     if(Test-Path "$env:localappdata\Packages\Microsoft.Lovika_8wekyb3d8bbwe\LocalCache\Local\DungeonsBackup\" -ErrorAction SilentlyContinue) {
     } else {
@@ -78,36 +114,11 @@ if($args[0] -eq "forcesavetransfer") {
             cd ..
             Start-Sleep -s 1
             mv "$env:localappdata\Packages\Microsoft.Lovika_8wekyb3d8bbwe\LocalCache\Local\Dungeons" "$env:localappdata\Packages\Microsoft.Lovika_8wekyb3d8bbwe\LocalCache\Local\DungeonsBackup"
+            }
         }
     }
-}
 
 clear
-
-if($args[0] -eq "update") {
-    "Preparing to update!"
-    $install = Get-AppxPackage -Name "Microsoft.Lovika.mod" | select -ExpandProperty InstallLocation
-    $version = Get-AppxPackage -Name "Microsoft.Lovika" | select -ExpandProperty Version
-    $versionorig = "1.1.2.1"
-    if ([version]$version -gt [version]$versionorig) {
-
-        "Minecraft Dungeons version after 1.3.2.0, update functionality not supported. Please backup your mods, reinstall the original version of the game and run the script normally again."
-        exit
-
-        } else {
-
-        if($install -eq $null) {
-        "Error: Modded Installation not found! Are you sure you have it installed?"
-        exit
-        } else {
-        Remove-Item -Path "$install\Dungeons\Content\Paks\*" -include pakchunk*.pak
-        mv "$install\Dungeons\Content\Paks\" C:\mcdtemp\UpdateTemp\Paks 
-        Get-AppxPackage -Name "Microsoft.Lovika.mod" | Remove-AppxPackage
-        rm "$install\*" -Recurse
-        
-        }
-    }
-}
 "Dumping... This can take a while!"
 explorer.exe shell:AppsFolder\$(get-appxpackage -name Microsoft.Lovika | select -expandproperty PackageFamilyName)!Game
 while($id -eq $null) {
