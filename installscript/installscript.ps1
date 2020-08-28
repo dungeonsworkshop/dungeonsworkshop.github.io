@@ -1,6 +1,6 @@
 #   Install script for the WinStore version of Minecraft: Dungeons.
 #   Script made by LukeFZ#4035
-#
+#   Version last updated 28/08/2020
 #
 
 
@@ -151,6 +151,9 @@ xcopy /T /E /g . $install
 xcopy /E /g . $install
 Rename-Item -Path "$install\Dungeons\Binaries\Win64\Dungeons.exe" -NewName "Dungeons-Win64-Shipping.exe"
 }
+
+"Decrypting copied files... this can take a while!"
+cipher /d $install
 
 "Patching AppxManifest..."
 $filecontent = Get-Content -Path $install/appxmanifest.xml
