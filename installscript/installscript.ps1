@@ -153,7 +153,8 @@ Rename-Item -Path "$install\Dungeons\Binaries\Win64\Dungeons.exe" -NewName "Dung
 }
 
 "Decrypting copied files... this can take a while!"
-cipher /d $install
+cd $install
+cipher /d
 
 "Patching AppxManifest..."
 $filecontent = Get-Content -Path $install/appxmanifest.xml
