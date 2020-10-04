@@ -140,7 +140,6 @@ if($args[0] -eq "update") {
     cd "$env:localappdata/Packages/Microsoft.Lovika_8wekyb3d8bbwe/TempState/DUMP"
     xcopy /T /E /g . $install
     xcopy /E /g . $install
-    Rename-Item -Path "$install\Dungeons\Binaries\Win64\Dungeons.exe" -NewName "Dungeons-Win64-Shipping.exe"
 
     } else {
 
@@ -159,7 +158,7 @@ cipher /d
 "Patching AppxManifest..."
 $filecontent = Get-Content -Path $install/appxmanifest.xml
 # $filecontent[2] = $filecontent[2] -replace "Microsoft.Lovika","Microsoft.Lovika.mod"
-$filecontent[31] = $filecontent[31] -replace "Dungeons.exe","Dungeons-Win64-Shipping.exe"
+# $filecontent[31] = $filecontent[31] -replace "Dungeons.exe","Dungeons-Win64-Shipping.exe"
 $filecontent[32] = $filecontent[32] -replace "Minecraft Dungeons","Minecraft Dungeons [Modding]"
 Set-Content -Path $install/appxmanifest.xml -Value $filecontent
 
