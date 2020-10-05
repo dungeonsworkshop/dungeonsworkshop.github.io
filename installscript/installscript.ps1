@@ -129,7 +129,7 @@ xcopy /E /g . $install
 
 "Decrypting copied files... this can take a while!"
 cd $install
-cipher /d /S:$install
+cipher /d /S:/
 
  "Patching AppxManifest..."
 # $filecontent = Get-Content -Path $install/appxmanifest.xml
