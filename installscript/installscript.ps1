@@ -1,6 +1,6 @@
 #   Install script for the WinStore version of Minecraft: Dungeons.
 #   Script made by LukeFZ#4035
-#   Version last updated 28/08/2020
+#   Version last updated 05/10/2020
 #
 
 
@@ -94,30 +94,6 @@ if($args[0] -eq "update") {
         }
     }
 }
-if($args[0] -eq "forcesavetransfer") {
-    if(Test-Path "$env:localappdata\Packages\Microsoft.Lovika_8wekyb3d8bbwe\LocalCache\Local\DungeonsBackup\" -ErrorAction SilentlyContinue) {
-    } else {
-    if(Test-Path "$env:localappdata\Packages\Microsoft.Lovika_8wekyb3d8bbwe\LocalCache\Local\Dungeons\" -ErrorAction SilentlyContinue) {
-
-        if(Test-Path "$env:localappdata\Dungeons\" -ErrorAction SilentlyContinue) {
-
-            mv "$env:localappdata\Dungeons" "$env:localappdata\DungeonsBackup"
-            mkdir "$env:localappdata\Dungeons"
-
-            } else {
-                mkdir "$env:localappdata\Dungeons" 
-            }
-            "Making Savegame persistent..."
-            $path2 = "$env:localappdata\Dungeons"
-            cd "$env:localappdata\Packages\Microsoft.Lovika_8wekyb3d8bbwe\LocalCache\Local\Dungeons"
-            xcopy /S /I /E /g . "$env:localappdata\Dungeons"
-            cd ..
-            Start-Sleep -s 1
-            mv "$env:localappdata\Packages\Microsoft.Lovika_8wekyb3d8bbwe\LocalCache\Local\Dungeons" "$env:localappdata\Packages\Microsoft.Lovika_8wekyb3d8bbwe\LocalCache\Local\DungeonsBackup"
-            }
-        }
-    }
-
 clear
 "Dumping... This can take a while!"
 explorer.exe shell:AppsFolder\$(get-appxpackage -name Microsoft.Lovika | select -expandproperty PackageFamilyName)!Game
@@ -148,19 +124,23 @@ $install = ($application.BrowseForFolder(0, 'Select a Folder where the game shou
 cd "$env:localappdata/Packages/Microsoft.Lovika_8wekyb3d8bbwe/TempState/DUMP"
 xcopy /T /E /g . $install
 xcopy /E /g . $install
-Rename-Item -Path "$install\Dungeons\Binaries\Win64\Dungeons.exe" -NewName "Dungeons-Win64-Shipping.exe"
 }
 
 "Decrypting copied files... this can take a while!"
 cd $install
-cipher /d
+cipher /d /S:$install
 
-"Patching AppxManifest..."
-$filecontent = Get-Content -Path $install/appxmanifest.xml
+ "Patching AppxManifest..."
+# $filecontent = Get-Content -Path $install/appxmanifest.xml
 # $filecontent[2] = $filecontent[2] -replace "Microsoft.Lovika","Microsoft.Lovika.mod"
 # $filecontent[31] = $filecontent[31] -replace "Dungeons.exe","Dungeons-Win64-Shipping.exe"
-$filecontent[32] = $filecontent[32] -replace "Minecraft Dungeons","Minecraft Dungeons [Modding]"
-Set-Content -Path $install/appxmanifest.xml -Value $filecontent
+# $filecontent[32] = $filecontent[32] -replace "Minecraft Dungeons","Minecraft Dungeons [Modding]"
+# Set-Content -Path $install/appxmanifest.xml -Value $filecontent
+Remove-Item -Path $install/appxmanifest.xml -Force
+Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net/installscript/appxmanifest.xml" -OutFile $install/appxmanifest.xml
+$filecontent = Get-Content -Path $install/appxmanifest.xml
+if ($filecontent[2] -contains $version) {}
+else {$filecontent[2] -replace "1.4.6.0",$version}
 
 "Patching Intro Videos..."
 mkdir "$install\Dungeons\Content\Movies\backup"
