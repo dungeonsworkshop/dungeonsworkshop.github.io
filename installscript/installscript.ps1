@@ -148,7 +148,7 @@ $install = ($application.BrowseForFolder(0, 'Select a Folder where the game shou
 cd "$env:localappdata/Packages/Microsoft.Lovika_8wekyb3d8bbwe/TempState/DUMP"
 xcopy /T /E /g . $install
 xcopy /E /g . $install
-Rename-Item -Path "$install\Dungeons\Binaries\Win64\Dungeons.exe" -NewName "Dungeons-Win64-Shipping.exe"
+# Rename-Item -Path "$install\Dungeons\Binaries\Win64\Dungeons.exe" -NewName "Dungeons-Win64-Shipping.exe"
 }
 
 "Decrypting copied files... this can take a while!"
