@@ -187,6 +187,17 @@ if(Test-Path -Path "$env:appdata\Vortex\plugins")
 "Finished! Cleaning up..."
 Remove-Item C:\mcdtemp -Force  -Recurse -ErrorAction SilentlyContinue
 
+
+# Shortcut Time
+$TargetFile = "shell:AppsFolder\Microsoft.Lovika_8wekyb3d8bbwe!Game"
+$Shortcut ="$env:USERPROFILE\Desktop\Minecraft Dungeons [Modding].lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$ShortcutCommand = $WScriptShell.CreateShortcut($Shortcut)
+$ShortcutCommand.TargetPath = $TargetFile
+$ShortcutCommand.Save()
+
+
+"The script has created a shortcut on your desktop, which you can use to launch the game."
 "To exit,press enter."
 pause
 exit
