@@ -124,6 +124,7 @@ $install = ($application.BrowseForFolder(0, 'Select a Folder where the game shou
 cd "$env:localappdata/Packages/Microsoft.Lovika_8wekyb3d8bbwe/TempState/DUMP"
 xcopy /T /E /g . $install
 xcopy /E /g . $install
+
 }
 
 "Decrypting copied files... this can take a while!"
