@@ -13,7 +13,7 @@ $Package = Get-AppxPackage Microsoft.Lovika                                     
 $PackageFamilyName = $Package.PackageFamilyName                                                                 # Game package family name
 $Version = $Package.version                                                                                     # Installed game version
 $Location = $Package.InstallLocation                                                                            # Game install location
-$InstalledDriveLetter = (Get-Item -Path (Get-Item -Path $Location).Target).PSDrive.Name                         # Drive letter of the drive the game is installed on
+$InstalledDriveLetter = (Get-Item -Path (Get-Item -Path ${Location}\).Target).PSDrive.Name                         # Drive letter of the drive the game is installed on
 $FreeSpace = (Get-WmiObject -Class Win32_logicaldisk -Filter "DeviceID = '${InstalledDriveLetter}:'").FreeSpace # Free space of the drive
 $SystemArchitecture = [Environment]::Is64BitOperatingSystem                                                     # Variable for checking system architecture
 $UWPDumper64 = "https://cdn.discordapp.com/attachments/697445257524019313/725117586718720030/UWPDumper_x64.zip" # Download URL for UWPDumper (x64)
@@ -39,21 +39,21 @@ clear
 
 "Checking requirements..."
 
-if($Package -eq $null) {
+if($Package -eq $null) {                                                                                       # Check if the Package is even installed
     "You do not have the Windows Store version of Minecraft: Dungeons installed."
     "Please install it from the Store or the Xbox app, then run the script again."
-    exit
-}
-
-if (!($FreeSpace -gt 10000000000)) {
-    "Error: You do not have enough free space left on ${InstalledDriveLetter}:\ to continue the patching."     # Dumping + Installation on the same drive uses almost 10GB, so adding this check
-    "Please free up at least 10GB of space to ensure proper installation."
     exit
 }
 
 if($Package.IsDevelopmentMode) {                                                                               # IsDevelopmentMode is true for packages installed by this script,
     "Error: You already have a moddable installation of the game installed."                                   # so we can use that to check if the script is necessary.
     "If you want to rerun this script, please reinstall Minecraft: Dungeons from the Windows Store."
+    exit
+}
+
+if (!($FreeSpace -gt 10000000000)) {
+    "Error: You do not have enough free space left on ${InstalledDriveLetter}:\ to continue the patching."     # Dumping + Installation on the same drive uses almost 10GB, so adding this check
+    "Please free up at least 10GB of space to ensure proper installation."
     exit
 }
 
