@@ -16,8 +16,9 @@
 	```
 	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net/installscript/installscript.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
 	```
-	3. It will prompt you about an **Execution Policy Change**. Just press **A** and then **Enter** on your Keyboard.
-		!!! Note
+	3. It will prompt you about an **Execution Policy Change**. Just press **A** and then **Enter** on your Keyboard.   
+	
+	!!! Note
 			The script will open the game at one point. Do not close it when this happens!
 	4. After a while you will be asked to select a folder. This is where the game files will be stored.
 	5. At the end, the script will display "Finished". The modifiable game is then installed! 
