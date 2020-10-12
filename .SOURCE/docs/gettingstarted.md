@@ -32,32 +32,22 @@
 		If you had the Mod Manager installed while running the script, the plugin will have installed automatically.   
 		If you didn't you need to run this command after you've installed Vortex Mod Manager:   
 		```
-		mkdir C:\mcdtemp2;Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net\extension\extension.zip" -OutFile C:\mcdtemp2\extension.zip;Expand-Archive -Path C:\mcdtemp2\extension.zip -DestinationPath "$env:appdata\Vortex\plugins" -Force;
+		mkdir $env:appdata\Vortex\plugins\game-minecraftdungeons;Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net\extension\extension.zip" -OutFile $env:appdata\Vortex\plugins\game-minecraftdungeons\extension.zip;Expand-Archive -Path $env:appdata\Vortex\plugins\game-minecraftdungeons\extension.zip -DestinationPath "$env:appdata\Vortex\plugins" -Force;
 		```
 		Now when you start Vortex, it should detect Minecraft Dungeons and you can install mods for it.  
 
-		**The Vortex automatic installation isnt supported yet, you need to download the mods manually and drag them into Vortex for now.**  
+		**The Vortex automatic installation isnt supported yet, you need to download the mods manually and drag them into Vortex for now.**    
 
-	!!! Bug (Fixed after game update 1.1.2.0!)
-		If you played the beta of Minecraft Dungeons, your save might be missing if you used the script.  
-		
-		To fix this, you need to delete the "Dungeons" in C:\Users\[your username]\AppData\Local and rename the folder "DungeonsBackup" to just "Dungeons".
 
 	!!! Warning
 		:warning: **Do not choose Program Files as the folder, it will break things.**  
 		
-		:warning: **When activating developer mode with the script it might be required to reboot. If you encounter an error, try to reboot and run the script again and see if that fixes the issue.**
+		:warning: **When activating developer mode with the script it might be required to reboot. If you encounter an error, try rebooting and run the script again and see if that fixes the issue.**
 		
 	<h3>**Updating the Windows Store installation**</h3>
 	
-	When an update for the game releases, you need to do these steps to get your modifiable game updated:  
-	1. Click on the **Windows Icon** in the bottom left, enter **powershell** then click **run as admin**.   
-	2. Run this command
-		```
-		Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri 		"https://docs.dungeonsworkshop.net/installscript/installscript.ps1" -OutFile 	C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
-		```
-	3. It will prompt you about an **Execution Policy Change**, just press **A** and then **Enter** on the keyboard.  
-	4. The script will now update your game. Do not close the game when it is opened!
+	Mojang has made it impossible to update the modded Windows Store version of the game.
+	If an update is available, backup your ~mods folder, reinstall the game from the store, and run the script again.
 	
 
 === "Launcher"
@@ -79,7 +69,7 @@
 		1. Click on the **Windows Icon** in the bottom left and enter **powershell** then click run as admin,  
 		2. Copy this command, paste it and press enter  
 		```
-		mkdir C:\mcdtemp2;Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net\extension\extension.zip" -OutFile C:\mcdtemp2\extension.zip;Expand-Archive -Path C:\mcdtemp2\extension.zip -DestinationPath "$env:appdata\Vortex\plugins" -Force;
+		mkdir $env:appdata\Vortex\plugins\game-minecraftdungeons;Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net\extension\extension.zip" -OutFile $env:appdata\Vortex\plugins\game-minecraftdungeons\extension.zip;Expand-Archive -Path $env:appdata\Vortex\plugins\game-minecraftdungeons\extension.zip -DestinationPath "$env:appdata\Vortex\plugins" -Force;
 		```  
 		3. Now when you start Vortex, it should detect Dungeons and you can install mods for it.  
 		**The Vortex automatic installation isnt supported yet, you need to download the mods manually and drag them into Vortex for now.**  

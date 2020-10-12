@@ -13,7 +13,7 @@ $Package = Get-AppxPackage Microsoft.Lovika                                     
 $PackageFamilyName = $Package.PackageFamilyName                                                                 # Game package family name
 $Version = $Package.version                                                                                     # Installed game version
 $Location = $Package.InstallLocation                                                                            # Game install location
-$InstalledDriveLetter = (Get-Item -Path (Get-Item -Path ${Location}\).Target).PSDrive.Name                         # Drive letter of the drive the game is installed on
+$InstalledDriveLetter = (Get-Item -Path (Get-Item -Path ${Location}\).Target).PSDrive.Name                      # Drive letter of the drive the game is installed on
 $FreeSpace = (Get-WmiObject -Class Win32_logicaldisk -Filter "DeviceID = '${InstalledDriveLetter}:'").FreeSpace # Free space of the drive
 $SystemArchitecture = [Environment]::Is64BitOperatingSystem                                                     # Variable for checking system architecture
 $UWPDumper64 = "https://cdn.discordapp.com/attachments/697445257524019313/725117586718720030/UWPDumper_x64.zip" # Download URL for UWPDumper (x64)

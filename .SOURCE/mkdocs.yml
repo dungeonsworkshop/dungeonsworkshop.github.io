@@ -28,7 +28,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/dungeonsworkshop
     - icon: fontawesome/brands/discord
-      link: https://discord.gg/JTpGsMN
+      link: https://discord.gg/Y3xZmdR
 
 markdown_extensions:
   - admonition
