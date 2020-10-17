@@ -248,14 +248,14 @@
 </div>
 <p><h3><strong>Windows Store Installation</strong></h3></p>
 <ol>
-<li>Click on the <strong>Windows icon</strong> in the bottom left and enter <strong>powershell</strong> then click run as admin  </li>
-<li>Run this command
+<li>Click on the <strong>Windows icon</strong> in the bottom left, then enter <strong>powershell</strong> and click "<strong>Run as admin</strong>".  </li>
+<li>Run this command:
 <div class="highlight"><pre><span></span><code>Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri &quot;https://docs.dungeonsworkshop.net/installscript/installscript.ps1&quot; -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
 </code></pre></div></li>
 <li>It will prompt you about an <strong>Execution Policy Change</strong>. Just press <strong>A</strong> and then <strong>Enter</strong> on your Keyboard.   </li>
 </ol>
 <div class="admonition note">
-<p class="admonition-title">Note<p>The script will open the game at one point. Do not close it when this happens!</p>
+<p class="admonition-title">Note<p>The script will open the game at one point. Do not close it when this happens!   </p>
 </p>
 </div>
 <ol>
@@ -282,8 +282,25 @@ Now when you start Vortex, it should detect Minecraft Dungeons and you can insta
 <p><img alt="⚠" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/26a0.svg" title=":warning:" /> <strong>When activating developer mode with the script it might be required to reboot. If you encounter an error, try rebooting and run the script again and see if that fixes the issue.</strong></p>
 </div>
 <p><h3><strong>Updating the Windows Store installation</strong></h3></p>
-<p>Mojang has made it impossible to update the modded Windows Store version of the game.
-If an update is available, backup your ~mods folder, reinstall the game from the store, and run the script again.</p>
+<ol>
+<li>Click on the <strong>Windows icon</strong> in the bottom left, then enter <strong>powershell</strong> and click "<strong>Run as admin</strong>".  </li>
+<li>Run this command:
+<div class="highlight"><pre><span></span><code>Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri &quot;https://docs.dungeonsworkshop.net/installscript/installscript.ps1&quot; -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
+</code></pre></div></li>
+<li>It will prompt you about an <strong>Execution Policy Change</strong>. Just press <strong>A</strong> and then <strong>Enter</strong> on your Keyboard.   </li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note<p>The script will open the game at one point. Do not close it when this happens!</p>
+</p>
+</div>
+<ol>
+<li>After a while you will be asked to select a folder. This is where the game files will be stored.</li>
+<li>At the end, the script will display "Finished". The modifiable game is then installed! 
+To start the game, you can click on the <strong>Windows Logo</strong>, search for "Minecraft Dungeons" and click on the entry that says
+"<strong>Minecraft Dungeons [Modding]</strong>"</li>
+<li>Now if you want to install mods, you can put them into the <strong>~mods</strong> folder, which is located in <strong>Dungeons/Content/Paks</strong>
+in the folder you chose when you ran the script.</li>
+</ol>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Launcher</label><div class="tabbed-content">
 <p><h3><strong>Launcher Installation</strong></h3>

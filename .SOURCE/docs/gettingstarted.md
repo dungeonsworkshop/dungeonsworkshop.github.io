@@ -11,15 +11,15 @@
 
 	<h3>**Windows Store Installation**</h3>
 
-	1. Click on the **Windows icon** in the bottom left and enter **powershell** then click run as admin  
-	2. Run this command
+	1. Click on the **Windows icon** in the bottom left, then enter **powershell** and click "**Run as admin**".  
+	2. Run this command:
 	```
 	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net/installscript/installscript.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
 	```
 	3. It will prompt you about an **Execution Policy Change**. Just press **A** and then **Enter** on your Keyboard.   
 	
 	!!! Note
-			The script will open the game at one point. Do not close it when this happens!
+			The script will open the game at one point. Do not close it when this happens!   
 	4. After a while you will be asked to select a folder. This is where the game files will be stored.
 	5. At the end, the script will display "Finished". The modifiable game is then installed! 
 	To start the game, you can click on the **Windows Logo**, search for "Minecraft Dungeons" and click on the entry that says
@@ -46,8 +46,21 @@
 		
 	<h3>**Updating the Windows Store installation**</h3>
 	
-	Mojang has made it impossible to update the modded Windows Store version of the game.
-	If an update is available, backup your ~mods folder, reinstall the game from the store, and run the script again.
+	1. Click on the **Windows icon** in the bottom left, then enter **powershell** and click "**Run as admin**".  
+	2. Run this command:
+	```
+	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net/installscript/installscript.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
+	```
+	3. It will prompt you about an **Execution Policy Change**. Just press **A** and then **Enter** on your Keyboard.   
+	
+	!!! Note
+			The script will open the game at one point. Do not close it when this happens!
+	4. After a while you will be asked to select a folder. This is where the game files will be stored.
+	5. At the end, the script will display "Finished". The modifiable game is then installed! 
+	To start the game, you can click on the **Windows Logo**, search for "Minecraft Dungeons" and click on the entry that says
+	"**Minecraft Dungeons [Modding]**"
+	6. Now if you want to install mods, you can put them into the **~mods** folder, which is located in **Dungeons/Content/Paks**
+	in the folder you chose when you ran the script.
 	
 
 === "Launcher"

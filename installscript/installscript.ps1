@@ -71,11 +71,11 @@ if (!($FreeSpace -gt 10000000000)) {
 # mkdir $TempPath -Force                                                                                       # Creating the temp. folder for all downloads
 if ($args[0] -eq "update") {
 
-#if (!($FreeSpaceC -gt 15000000000)) {
-#    "Error: You do not have enough free space left on C:\ to continue the patching."                           # Updating uses 5 more GB, and we cant specify install location of msixvc.
-#    "Please free up at least 15GB of space to ensure proper installation."
-#    exit
-#}
+if (!($FreeSpaceC -gt 15000000000)) {
+    "Error: You do not have enough free space left on C:\ to continue the patching."                           # Updating uses 5 more GB, and we cant specify install location of msixvc.
+    "Please free up at least 15GB of space to ensure proper installation."
+    exit
+}
 
 
 "Downloading required update files..."                                                                         # Downloading file with latest update link & version
