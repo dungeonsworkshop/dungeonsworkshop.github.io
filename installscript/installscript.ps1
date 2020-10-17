@@ -3,7 +3,8 @@
 # made by LukeFZ#4035
 # with help from the Dungeoneer's Hideout server (discord.gg/Y3xZmdR)
 #
-# Version 2.0
+# Version 2.1
+# Changelog: 2.1 - Added update mechanism
 
 # Needed for developer mode activation, as well as folder permissions
 #Requires -RunAsAdministrator
@@ -11,8 +12,8 @@
 # Preparing Variables
 $Package = Get-AppxPackage Microsoft.Lovika                                                                     # Game package details
 $PackageFamilyName = $Package.PackageFamilyName                                                                 # Game package family name
-$Version = $Package.version                                                                                     # Installed game version
 $Location = $Package.InstallLocation                                                                            # Game install location
+$Version = $Package.version                                                                                     # Installed game version
 $InstalledDriveLetter = (Get-Item -Path (Get-Item -Path ${Location}\).Target).PSDrive.Name                      # Drive letter of the drive the game is installed on
 $FreeSpace = (Get-WmiObject -Class Win32_logicaldisk -Filter "DeviceID = '${InstalledDriveLetter}:'").FreeSpace # Free space of the drive
 $SystemArchitecture = [Environment]::Is64BitOperatingSystem                                                     # Variable for checking system architecture
@@ -26,12 +27,21 @@ $Progress = 0                                                                   
 $Install                                                                                                        # User-chosen install folder
 $Id                                                                                                             # Dungeons Process ID, used in dumping
 
+
+if ($args[0] -eq "update") {
+$FreeSpaceC = (Get-WmiObject -Class Win32_logicaldisk -Filter "DeviceID = 'C:'").FreeSpace                      # Free space of the drive C, used for updating
+$UpdateManifest = "https://docs.dungeonsworkshop.net/update/updatemanifest.txt"                                 # Download URL for update "manifest"
+$UpdateLink                                                                                                     # Download URL for update .msixvc 
+$Install = $Location                                                                                            # Game is already installed, no install folder selection
+$DownloadLocation = "$TempPath\update.msixvc"                                                                   # Update file output
+}
+
 clear 
 
 "
 +---------------------+
 |Dungeons Modding Tool|
-|     Version 2.0     |
+|     Version 2.1     |
 | made by LukeFZ#4035 |
 +---------------------+
 " 
@@ -45,9 +55,10 @@ if($Package -eq $null) {                                                        
     exit
 }
 
-if($Package.IsDevelopmentMode) {                                                                               # IsDevelopmentMode is true for packages installed by this script,
+if(($Package.IsDevelopmentMode) -and ($args[0] -ne "update")) {                                                # IsDevelopmentMode is true for packages installed by this script,
     "Error: You already have a moddable installation of the game installed."                                   # so we can use that to check if the script is necessary.
-    "If you want to rerun this script, please reinstall Minecraft: Dungeons from the Windows Store."
+    "If you want to update your installation instead, run this script with the 'update' argument."
+    "Else, if you want to rerun this script, please reinstall Minecraft: Dungeons from the Windows Store."
     exit
 }
 
@@ -57,7 +68,47 @@ if (!($FreeSpace -gt 10000000000)) {
     exit
 }
 
-# mkdir $TempPath -Force                                                                                         # Creating the temp. folder for all downloads
+# mkdir $TempPath -Force                                                                                       # Creating the temp. folder for all downloads
+if ($args[0] -eq "update") {
+
+#if (!($FreeSpaceC -gt 15000000000)) {
+#    "Error: You do not have enough free space left on C:\ to continue the patching."                           # Updating uses 5 more GB, and we cant specify install location of msixvc.
+#    "Please free up at least 15GB of space to ensure proper installation."
+#    exit
+#}
+
+
+"Downloading required update files..."                                                                         # Downloading file with latest update link & version
+Invoke-WebRequest -Uri $UpdateManifest -OutFile $TempPath\updatemanifest.txt
+
+$UpdateFileContent = Get-Content -Path $TempPath\updatemanifest.txt
+if (($UpdateFileContent[0] -eq $Version) -or ([version]$UpdateFileContent[0] -lt [version]$Version)) {
+    "You already have the newest version of Minecraft: Dungeons installed!"
+    exit
+}
+
+$UpdateLink = $UpdateFileContent[1]
+
+"Downloading update package. This can take a while depending on your internet speed!"
+$WebClient = New-Object System.Net.WebClient
+$WebClient.DownloadFile($UpdateLink, $DownloadLocation)
+
+"Finished!"
+
+"Backing up mods..."
+mv "$Install\Dungeons\Content\Paks\~mods" "$TempPath\~mods"
+
+"Uninstalling modifiable version..."
+Remove-AppxPackage $Package -AllUsers                                                                          # Removes package but not folders
+Remove-Item $install/* -Recurse                                                                                # Removes folders
+
+"Installing updated store version..."
+Add-AppxPackage "$TempPath/update.msixvc"                                                                      # A package format used by the store
+
+$Package = Get-AppxPackage Microsoft.Lovika                                                                    # Need to update for new version/package
+$Version = $Package.version
+
+}
 
 "Enabling Developer Mode..."                                                                                   # Needed for reinstalling the package after dumping
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /t REG_DWORD /f /v "AllowDevelopmentWithoutDevLicense" /d "1"
@@ -94,29 +145,32 @@ clear
 "
 +---------------------+
 |Dungeons Modding Tool|
-|     Version 2.0     |
+|     Version 2.1     |
 | made by LukeFZ#4035 |
 +---------------------+
 " 
+if ($args[0] -eq "update") {
+    "Using installation folder from previous installation!"
+} else {
+    while($Progress -eq "0") {
 
-while($Progress -eq "0") {
-
-    $Application = New-Object -ComObject Shell.Application
-    $Install = ($Application.BrowseForFolder(0, 'Select a Folder where the game should be stored! (Do not select the root of a drive)', 0)).Self.Path # Choose a folder dialog
-    if ($Install -contains "OneDrive") {                                                                       # Problematic Folder names get filtered out here
-        "You have selected a folder which is stored on your OneDrive cloud."
-        "You probably don't want this, so please select a different folder."
-    } elseif ($Install -contains "Program Files") {
-        "Your selection can cause permission problems, please select a different one."
-    } else {
-        $Progress = "1"
-    }
-    $InstalledDriveLetter = (Get-Item -Path (Get-Item -Path $Install).Target).PSDrive.Name                          # Free space check for install drive
-    $FreeSpace = (Get-WmiObject -Class Win32_logicaldisk -Filter "DeviceID = '${InstalledDriveLetter}:'").FreeSpace
-    if (!($FreeSpace -gt 5000000000)) {
-        "The drive you selected your folder on doesn't have enough free space available."
-        "Please choose another folder on a different drive."
-        $Progress = "0" 
+        $Application = New-Object -ComObject Shell.Application
+        $Install = ($Application.BrowseForFolder(0, 'Select a Folder where the game should be stored! (Do not select the root of a drive)', 0)).Self.Path # Choose a folder dialog
+        if ($Install -contains "OneDrive") {                                                                       # Problematic Folder names get filtered out here
+            "You have selected a folder which is stored on your OneDrive cloud."
+            "You probably don't want this, so please select a different folder."
+        } elseif ($Install -contains "Program Files") {
+            "Your selection can cause permission problems, please select a different one."
+        } else {
+            $Progress = "1"
+        }
+        $InstalledDriveLetter = (Get-Item -Path (Get-Item -Path $Install).Target).PSDrive.Name                     # Free space check for install drive
+        $FreeSpace = (Get-WmiObject -Class Win32_logicaldisk -Filter "DeviceID = '${InstalledDriveLetter}:'").FreeSpace
+        if (!($FreeSpace -gt 5000000000)) {
+            "The drive you selected your folder on doesn't have enough free space available."
+            "Please choose another folder on a different drive."
+            $Progress = "0" 
+        }
     }
 }
 
@@ -136,22 +190,30 @@ Remove-Item -Path "$Install/appxmanifest.xml" -Force
 Invoke-WebRequest -Uri $AppxManifest -OutFile "$Install/AppxManifest.xml"                                      # https://github.com/dungeonsworkshop/dungeonsworkshop.github.io
 cipher /d "$Install/AppxManifest.xml"
 $Filecontent = Get-Content -Path "$Install/appxmanifest.xml"
-if ($Filecontent[2] -contains $Version) {}                                                                     # Future-proofing the AppxManifest.xml, should the game update
-else {
+if (!($Filecontent[2] -contains $Version)) {                                                                   # Future-proofing the AppxManifest.xml, should the game update
     $Filecontent[2] -replace "1.4.6.0",$Version
     Set-Content -Path "$Install/appxmanifest.xml" -Value $Filecontent
 }
+
 
 "Removing intro videos..."                                                                                     # Nobody likes the videos, so we just "remove" them
 mkdir "$install\Dungeons\Content\Movies\backup"
 Get-ChildItem -Path "$install\Dungeons\Content\Movies\*" -File -Exclude "loader_splash1080.mp4","dungeons_intro_1080_loop.mp4","blank_splash720.mp4" | Move-Item -Destination "$install\Dungeons\Content\Movies\backup\"
 
 "Uninstalling original version..."
-Remove-AppxPackage $Package -AllUsers                                                                          # Need to first remove the original Package to install the new one
+Remove-AppxPackage $Package -AllUsers                                                                          # Need to first remove the original package to install the new one
 
 "Original version uninstalled, now installing modifiable version..."
 Add-Appxpackage -Path "$install/AppxManifest.xml" -register                                                    # Installing the modifiable package with the patched AppxManifest.xml
 mkdir "$install\Dungeons\Content\Paks\~mods" -Force
+
+
+if ($args[0] -eq "update") {
+    "Finishing update process..."
+    mv $TempPath\~mods $Install\Dungeons\Content\Paks\~mods
+}
+
+
 
 "Main process finished! Now checking if Vortex is installed..."                                                # Trying to install the Vortex Mod Manager plugin
 if(Test-Path -Path "$env:appdata\Vortex\plugins")                                                              # Useful for installing NexusMods mods
