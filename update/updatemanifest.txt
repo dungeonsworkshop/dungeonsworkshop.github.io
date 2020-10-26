@@ -1,2 +1,2 @@
-1.4.6.0
-http://assets1.xboxlive.com/7/847f1771-f32d-4e10-a881-c2f44b1a0f0d/911f6225-c9c8-4641-a6db-29d4ccafc666/1.4.6.0.539d6a76-d38c-4609-865a-119d27eb80d0/Microsoft.Lovika_1.4.6.0_x64__8wekyb3d8bbwe_retail.msixvc
+1.5.0.0
+http://assets1.xboxlive.com/7/14cc7edb-49a5-4bd9-a8bb-d71e6fe5c573/911f6225-c9c8-4641-a6db-29d4ccafc666/1.5.0.0.30bc2f38-7b60-486c-b51a-4fdde267237f/Microsoft.Lovika_1.5.0.0_x64__8wekyb3d8bbwe_retail.msixvc
