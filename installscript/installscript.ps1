@@ -3,8 +3,10 @@
 # made by LukeFZ#4035
 # with help from the Dungeoneer's Hideout server (discord.gg/Y3xZmdR)
 #
-# Version 2.1
-# Changelog: 2.1 - Added update mechanism
+# Version 2.2
+# Changelog:
+# 2.2 - Fixed directory matching
+# 2.1 - Added update mechanism
 
 # Needed for developer mode activation, as well as folder permissions
 #Requires -RunAsAdministrator
@@ -41,7 +43,7 @@ clear
 "
 +---------------------+
 |Dungeons Modding Tool|
-|     Version 2.1     |
+|     Version 2.2     |
 | made by LukeFZ#4035 |
 +---------------------+
 " 
@@ -145,7 +147,7 @@ clear
 "
 +---------------------+
 |Dungeons Modding Tool|
-|     Version 2.1     |
+|     Version 2.2     |
 | made by LukeFZ#4035 |
 +---------------------+
 " 
@@ -156,10 +158,10 @@ if ($args[0] -eq "update") {
 
         $Application = New-Object -ComObject Shell.Application
         $Install = ($Application.BrowseForFolder(0, 'Select a Folder where the game should be stored! (Do not select the root of a drive)', 0)).Self.Path # Choose a folder dialog
-        if ($Install -contains "OneDrive") {                                                                       # Problematic Folder names get filtered out here
+        if ($Install -Match "OneDrive") {                                                                         # Problematic Folder names get filtered out here
             "You have selected a folder which is stored on your OneDrive cloud."
             "You probably don't want this, so please select a different folder."
-        } elseif ($Install -contains "Program Files") {
+        } elseif ($Install -Match "Program Files") {
             "Your selection can cause permission problems, please select a different one."
         } else {
             $Progress = "1"
