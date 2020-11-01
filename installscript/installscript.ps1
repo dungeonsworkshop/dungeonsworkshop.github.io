@@ -58,12 +58,12 @@ if($Package -eq $null) {                                                        
     exit
 }
 
-#if(($Package.IsDevelopmentMode) -and ($args[0] -ne "update")) {                                                 # IsDevelopmentMode is true for packages installed by this script,
-#    "Error: You already have a moddable installation of the game installed."                                    # so we can use that to check if the script is necessary.
-#    "If you want to update your installation instead, run this script with the 'update' argument."
-#    "Else, if you want to rerun this script, please reinstall Minecraft: Dungeons from the Windows Store."
-#    exit
-#}
+if(($Package.IsDevelopmentMode) -and ($args[0] -ne "update")) {                                                 # IsDevelopmentMode is true for packages installed by this script,
+    "Error: You already have a moddable installation of the game installed."                                    # so we can use that to check if the script is necessary.
+    "If you want to update your installation instead, run this script with the 'update' argument."
+    "Else, if you want to rerun this script, please reinstall Minecraft: Dungeons from the Windows Store."
+    exit
+}
 
 if (!($FreeSpace -gt 8000000000)) {
     "Error: You do not have enough free space left on ${InstalledDriveLetter}:\ to continue the patching."      # Dumping + Installation on the same drive uses almost 10GB, so adding this check
