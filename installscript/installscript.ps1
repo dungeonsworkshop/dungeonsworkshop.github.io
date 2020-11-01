@@ -20,8 +20,8 @@ $Version = $Package.version                                                     
 $InstalledDriveLetter = (Get-Item -Path (Get-Item -Path ${Location}\).Target).PSDrive.Name                      # Drive letter of the drive the game is installed on
 $FreeSpace = (Get-WmiObject -Class Win32_logicaldisk -Filter "DeviceID = '${InstalledDriveLetter}:'").FreeSpace # Free space of the drive
 $SystemArchitecture = [Environment]::Is64BitOperatingSystem                                                     # Variable for checking system architecture
-$UWPDumper64 = "https://cdn.discordapp.com/attachments/697445257524019313/772412694925279262/UWPDumper_Patched_x64.zip" # Download URL for UWPDumper (x64)
-$UWPDumper86 = "https://cdn.discordapp.com/attachments/697445257524019313/772412825288310804/UWPDumper_Patched_x86.zip" # Download URL for UWPDumper (x86)
+$UWPDumper64 = "https://cdn.discordapp.com/attachments/721362545889509388/772504733289414666/UWPDumper_Patched_x64.zip" # Download URL for UWPDumper (x64)
+$UWPDumper86 = "https://cdn.discordapp.com/attachments/721362545889509388/772507230859165726/UWPDumper_Patched_x86.zip" # Download URL for UWPDumper (x86)
 $AppxManifest = "https://docs.dungeonsworkshop.net/installscript/appxmanifest.xml"                              # Download URL for patched AppxManifest.xml
 $Extension = "https://docs.dungeonsworkshop.net/extension/extension.zip"                                        # Download URL for Vortex Extension
 # $DumpLocation = "$env:localappdata\Packages\$PackageFamilyName\TempState\DUMP"                                # Location of dumped game (Redundant as of 2.3, dump location is now install location)
@@ -126,6 +126,8 @@ if ($args[0] -eq "update") {
             "You probably don't want this, so please select a different folder."
         } elseif ($Install -Match "Program Files") {
             "Your selection can cause permission problems, please select a different one."
+        } elseif ($Install -eq $null) {
+            "You need to make a selection to continue!"
         } else {
             $Progress = "1"
         }
@@ -160,14 +162,14 @@ while($Id -eq $null) {
     $Id = (Get-Process Dungeons).Id
 }
 
-C:\mcdtemp\uwp\UWPInjector.exe -p $Id                                                                           # Dumping the decrypted game files
-if (!(Test-Path -Path $DumpLocation)) {
+C:\mcdtemp\uwp\UWPInjector.exe -p $Id -d $Install                                                               # Dumping the decrypted game files
+if (!(Test-Path -Path $Install\Dungeons)) {
     "Something went wrong while trying to dump the game."
     "If this error persists, report this in the Discord channel."
     exit
 } else {
     "Dumping finished successfully!"
-    Stop-Process -Id $Id -Force -d $Install
+    Stop-Process -Id $Id -Force
 }
 clear
 
@@ -181,9 +183,9 @@ clear
 
 # Not needed anymore, as we just dump the game to the selected folder. (Made redundant in 2.3)
 # "Copying game files..."
-# cd $DumpLocation                                                                                                # Enter dump folder
-# xcopy /T /E /g . "$Install"                                                                                     # First copy only the directory structure, prevents errors 
-# xcopy /E /g . "$Install"                                                                                        # Now copy all the files, 'hopefully' prevent reencryption
+# cd $DumpLocation                                                                                              # Enter dump folder
+# xcopy /T /E /g . "$Install"                                                                                   # First copy only the directory structure, prevents errors 
+# xcopy /E /g . "$Install"                                                                                      # Now copy all the files, 'hopefully' prevent reencryption
 
 "Decrypting copied game files, this can take a while!"
 cd $Install
@@ -195,8 +197,8 @@ Remove-Item -Path "$Install/appxmanifest.xml" -Force
 Invoke-WebRequest -Uri $AppxManifest -OutFile "$Install/AppxManifest.xml"                                       # https://github.com/dungeonsworkshop/dungeonsworkshop.github.io
 cipher /d "$Install/AppxManifest.xml"
 $Filecontent = Get-Content -Path "$Install/appxmanifest.xml"
-if (!($Filecontent[2] -Match $Version)) {                                                                       # Future-proofing the AppxManifest.xml, should the game update
-    $Filecontent[2] -replace "1.4.6.0",$Version
+if (!([Version]$Filecontent[2] -Match [Version]$Version)) {                                                     # Future-proofing the AppxManifest.xml, should the game update
+    $Filecontent[2] -replace [Version]"1.4.6.0",[Version]$Version
     Set-Content -Path "$Install/appxmanifest.xml" -Value $Filecontent
 }
 
