@@ -1,35 +1,30 @@
-**Make sure dungeons is not running while you try to install mods.**
+**Make sure Dungeons is not running while you try to install mods.**
 
 === "Windows Store" 
 	!!! Warning "Warnings"
-		:no_entry_sign: **Bitdefender user will need to uninstall Bitdefender, as it just breaks the script completely**  
+		:no_entry_sign: **Bitdefender user will need to uninstall Bitdefender, as it just breaks the program completely**  
 		:warning: **Turn off any Antivirus Software as they will get triggered**  
 
 	!!! Note "Prerequisites"
 		**Install [Visual C++ Redist](https://aka.ms/vs/16/release/vc_redist.x64.exe)**  
-
+		**Download [storepatcher.exe](https://docs.dungeonsworkshop.net/installscript/storepatcher.exe)**
 
 	<h3>**Windows Store Installation**</h3>
 
-	1. Click on the **Windows icon** in the bottom left, then enter **powershell** and click "**Run as admin**".  
-	2. Run this command:
-	```
-	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net/installscript/installscript.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1
-	```
-	3. It will prompt you about an **Execution Policy Change**. Just press **A** and then **Enter** on your Keyboard.   
+	1. Run the downloaded **storepatcher.exe**.   
 	
 	!!! Note
-			The script will open the game at one point. Do not close it when this happens!   
-	4. After a while you will be asked to select a folder. This is where the game files will be stored.
-	5. At the end, the script will display "Finished". The modifiable game is then installed! 
+			The program will open the game at one point. Do not close it when this happens!   
+	2. After a while you will be asked to select a folder. This is where the game files will be stored.
+	3. At the end, the program will display "Finished". The modifiable game is then installed! 
 	To start the game, you can click on the **Windows Logo**, search for "Minecraft Dungeons" and click on the entry that says
 	"**Minecraft Dungeons [Modding]**"
-	6. Now if you want to install mods, you can put them into the **~mods** folder, which is located in **Dungeons/Content/Paks**
-	in the folder you chose when you ran the script.
+	4. Now if you want to install mods, you can put them into the **~mods** folder, which is located in **Dungeons/Content/Paks**
+	in the folder you chose when you ran the program.
 
 	!!! Note
 		You can also install mods through the [Vortex Mod Manager](https://www.nexusmods.com/about/vortex/):  
-		If you had the Mod Manager installed while running the script, the plugin will have installed automatically.   
+		If you had the Mod Manager installed while running the program, the plugin will have installed automatically.   
 		If you didn't you need to run this command after you've installed Vortex Mod Manager:   
 		```
 		mkdir $env:appdata\Vortex\plugins\game-minecraftdungeons;Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net\extension\extension.zip" -OutFile $env:appdata\Vortex\plugins\game-minecraftdungeons\extension.zip;Expand-Archive -Path $env:appdata\Vortex\plugins\game-minecraftdungeons\extension.zip -DestinationPath "$env:appdata\Vortex\plugins" -Force;
@@ -39,28 +34,25 @@
 		**The Vortex automatic installation isnt supported yet, you need to download the mods manually and drag them into Vortex for now.**    
 
 
-	!!! Warning
-		:warning: **Do not choose Program Files as the folder, it will break things.**  
-		
-		:warning: **When activating developer mode with the script it might be required to reboot. If you encounter an error, try rebooting and run the script again and see if that fixes the issue.**
+	!!! Warning		
+		:warning: **When activating developer mode with the program it might be required to reboot. If you encounter an error, try rebooting and run the program again and see if that fixes the issue.**
 		
 	<h3>**Updating the Windows Store installation**</h3>
-	
-	1. Click on the **Windows icon** in the bottom left, then enter **powershell** and click "**Run as admin**".  
+
+	1. Enter the folder you downloaded **storepatcher.exe** into, press **Shift + Right Click** and click on **"Open command window here/Open Powershell window here"**.
 	2. Run this command:
 	```
-	Set-ExecutionPolicy -Scope Process Bypass;mkdir C:\mcdtemp; Invoke-WebRequest -Uri "https://docs.dungeonsworkshop.net/installscript/installscript.ps1" -OutFile C:\mcdtemp\winstore.ps1; C:\mcdtemp\winstore.ps1 update
+	storepatcher.exe update
 	```
-	3. It will prompt you about an **Execution Policy Change**. Just press **A** and then **Enter** on your Keyboard.   
-	
+
 	!!! Note
-			The script will open the game at one point. Do not close it when this happens!
+			The program will open the game at one point. Do not close it when this happens!
 	4. After a while you will be asked to select a folder. This is where the game files will be stored.
-	5. At the end, the script will display "Finished". The modifiable game is then installed! 
+	5. At the end, the program will display "Finished". The modifiable game is then installed! 
 	To start the game, you can click on the **Windows Logo**, search for "Minecraft Dungeons" and click on the entry that says
 	"**Minecraft Dungeons [Modding]**"
 	6. Now if you want to install mods, you can put them into the **~mods** folder, which is located in **Dungeons/Content/Paks**
-	in the folder you chose when you ran the script.
+	in the folder you chose when you ran the program.
 	
 
 === "Launcher"
