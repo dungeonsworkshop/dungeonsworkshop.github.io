@@ -7,7 +7,7 @@
 
 	!!! Note "Prerequisites"
 		**Install [Visual C++ Redist](https://aka.ms/vs/16/release/vc_redist.x64.exe)**  
-		**Download [storepatcher.exe](https://docs.dungeonsworkshop.net/installscript/storepatcher.exe)**
+		**Download [storepatcher.exe](https://github.com/dungeonsworkshop/dungeonsworkshop.github.io/releases)**
 
 	<h3>**Windows Store Installation**</h3>
 
